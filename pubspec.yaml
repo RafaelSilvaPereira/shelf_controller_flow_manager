@@ -1,6 +1,6 @@
 name: shelf_controller_flow_manager
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
+description: A simple application flow management tool in case of an exception or in its normal flow
+version: 1.0.1
 homepage: https://github.com/RafaelSilvaPereira/shelf_controller_flow_manager
 
 environment:
