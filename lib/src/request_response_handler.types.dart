@@ -6,5 +6,5 @@ import 'response.exception.dart';
 
 typedef RequestResponseHandler = FutureOr<Response> Function(Request request);
 typedef OnErrorRequestResponseHandler = Future<Response> Function(
-    ResponseException exception,
-    );
+  ResponseException exception,
+);

@@ -6,7 +6,6 @@ import 'response.exception.dart';
 import 'exception.handler.dart';
 import 'request_response_handler.types.dart';
 
-
 class ShelfControllerFlowManager {
   final ExceptionHandler onExceptionHandler;
 

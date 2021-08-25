@@ -12,7 +12,7 @@ abstract class ResponseException implements Exception {
   final DateTime timestamp = DateTime.now();
   final int statusCode;
   final String? message;
-  final Map<String, Object>? optionalMessages;
+  final Map<String, String>? optionalMessages;
 
   ResponseException(
     this.statusCode, {
@@ -29,8 +29,8 @@ abstract class ResponseException implements Exception {
       );
 
   String get responseBody {
-    final responseBody = <String, Object>{
-      'timestamp': timestamp,
+    final responseBody = <String, String>{
+      'timestamp': timestamp.toIso8601String(),
       'message': message ?? ''
     };
     if (optionalMessages != null) {
@@ -44,7 +44,7 @@ abstract class ResponseException implements Exception {
 class BadRequestException extends ResponseException {
   BadRequestException({
     String? message,
-    Map<String, Object>? optionalMessages,
+    Map<String, String>? optionalMessages,
   }) : super(
           HttpExceptionStatus.BAD_REQUEST,
           message: 'Bad Request: $message',
@@ -55,7 +55,7 @@ class BadRequestException extends ResponseException {
 class InternalServerErrorException extends ResponseException {
   InternalServerErrorException({
     String? message,
-    Map<String, Object>? optionalMessages,
+    Map<String, String>? optionalMessages,
   }) : super(
           HttpExceptionStatus.INTERNAL_SERVER_ERROR,
           message: 'Internal Server Error: $message',
@@ -66,7 +66,7 @@ class InternalServerErrorException extends ResponseException {
 class UnauthorizedException extends ResponseException {
   UnauthorizedException({
     String? message,
-    Map<String, Object>? optionalMessages,
+    Map<String, String>? optionalMessages,
   }) : super(
           HttpExceptionStatus.INTERNAL_SERVER_ERROR,
           message: 'Unauthorized: $message',
